@@ -56,13 +56,21 @@ class AuthService {
   /**
    * Sign in with either Supabase or localStorage
    */
+<<<<<<< HEAD
   async signIn(phone: string, password: string): Promise<AuthResponse> {
+=======
+  async signIn(phone: string, password: string, name?: string): Promise<AuthResponse> {
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
     await this.checkBackend();
 
     if (this.mode === "supabase") {
       return this.signInSupabase(phone, password);
     } else {
+<<<<<<< HEAD
       return this.signInLocal(phone, password);
+=======
+      return this.signInLocal(phone, password, name);
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
     }
   }
 
@@ -141,18 +149,34 @@ class AuthService {
   }
 
   // Local storage methods
+<<<<<<< HEAD
   private signInLocal(phone: string, password: string): AuthResponse {
+=======
+  private signInLocal(phone: string, password: string, name?: string): AuthResponse {
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
     const users = this.getLocalUsers();
     
     // Initialize with demo account if no users exist
     if (users.length === 0) {
       this.initializeDemoAccount();
+<<<<<<< HEAD
       return this.signInLocal(phone, password); // Retry with demo account
+=======
+      return this.signInLocal(phone, password, name); // Retry with demo account
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
     }
     
     // Find user by phone and password
     let user = users.find((u) => u.phone === phone && u.password === password);
 
+<<<<<<< HEAD
+=======
+    // If name is provided, also validate name
+    if (name && user && user.name !== name) {
+      throw new Error("Tên không khớp với tài khoản");
+    }
+
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
     if (!user) {
       // Check if phone exists but password is wrong
       const phoneExists = users.find((u) => u.phone === phone);

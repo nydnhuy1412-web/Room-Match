@@ -19,6 +19,10 @@ export function Auth({ onAuthSuccess, onSignUpSuccess }: AuthProps) {
   const [authMode, setAuthMode] = useState<AuthMode | null>(null);
   
   // Sign In State
+<<<<<<< HEAD
+=======
+  const [signInName, setSignInName] = useState("");
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
   const [signInPhone, setSignInPhone] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   
@@ -42,7 +46,11 @@ export function Auth({ onAuthSuccess, onSignUpSuccess }: AuthProps) {
     setIsLoading(true);
 
     try {
+<<<<<<< HEAD
       const response = await authService.signIn(signInPhone, signInPassword);
+=======
+      const response = await authService.signIn(signInPhone, signInPassword, signInName);
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
       const mode = authService.getMode();
       setAuthMode(mode);
 
@@ -189,6 +197,21 @@ export function Auth({ onAuthSuccess, onSignUpSuccess }: AuthProps) {
               <TabsContent value="signin">
                 <form onSubmit={handleSignIn} className="space-y-4 mt-4">
                   <div className="space-y-2">
+<<<<<<< HEAD
+=======
+                    <Label htmlFor="signin-name" className="text-teal-900">Họ và tên</Label>
+                    <Input
+                      id="signin-name"
+                      type="text"
+                      placeholder="Nguyễn Văn A"
+                      value={signInName}
+                      onChange={(e) => setSignInName(e.target.value)}
+                      required
+                      className="border-teal-200 focus:border-teal-600 focus:ring-teal-600"
+                    />
+                  </div>
+                  <div className="space-y-2">
+>>>>>>> bd99e80f3ea55281486402e7fe4d7ad094e65b07
                     <Label htmlFor="signin-phone" className="text-teal-900">Số điện thoại</Label>
                     <Input
                       id="signin-phone"
